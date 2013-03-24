@@ -12,7 +12,7 @@
 
 ## Installation
 
-Put 'FileFixture' directory on app/plugins in your CakePHP application.
+Put 'FileFixture' directory on app/Plugin or plugins in your CakePHP application.
 Then, add the following code in bootstrap.php
 
     <?php
