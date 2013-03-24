@@ -18,6 +18,46 @@ Then, add the following code in bootstrap.php
     <?php
         CakePlugin::load('FileFixture');
 
+## Usage
+
+	app/Test/Fixture/PostFixture.php
+	<?php
+	App::uses('FileTestFixture', 'FileFixture.TestSuite/Fixture');
+	/**
+	 * PostFixture
+	 *
+	 */
+	class PostFixture extends FileTestFixture {
+
+	/**
+	 * Fields
+	 *
+	 * @var array
+	 */
+			public $fields = array(
+			'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'key' => 'primary'),
+			'title' => array('type' => 'string', 'null' => true, 'length' => 50),
+			'body' => array('type' => 'text', 'null' => true, 'length' => 1073741824),
+			'created' => array('type' => 'datetime', 'null' => true),
+			'modified' => array('type' => 'datetime', 'null' => true),
+			'indexes' => array(
+				'PRIMARY' => array('unique' => true, 'column' => 'id')
+			),
+			'tableParameters' => array()
+		);
+
+		public $importRecords = array(
+			// 'path' => [path to Fixture File Path], // Optional(default is 'app/Test/Fixture/Data/')
+			'file' => 'posts.csv',
+		);
+	}
+
+	# app/Test/Fixture/Data/posts.csv
+	title,body,created,modified
+	"The title","This is the post body.","2011-06-20 23:10:57","2011-06-20 23:10:57"
+	"A title once again","And the post body follows.","2011-06-20 23:10:57","2011-06-20 23:10:57"
+	"Title strikes back","This is really exciting! Not.","2011-06-20 23:10:57","2011-06-20 23:10:57"
+
 ## License
 
 The MIT License
