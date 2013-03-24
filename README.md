@@ -1,4 +1,4 @@
-# FileFixture: Load data from csv/tsv for UnitTest plugin for CakePHP
+# FileFixture Plugin for CakePHP2.x
 
 ## Feature
 
