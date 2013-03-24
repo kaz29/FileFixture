@@ -1,6 +1,6 @@
 # FileFixture Plugin for CakePHP2.x
 
-[![Build Status](https://travis-ci.org/kaz29/filefixture.png?branch=2.0)](https://travis-ci.org/kaz29/filefixture)
+[![Build Status](https://travis-ci.org/kaz29/FileFixture.png)](https://travis-ci.org/kaz29/FileFixture)
 
 ## Feature
 
