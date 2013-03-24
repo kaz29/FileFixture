@@ -9,7 +9,7 @@
 
 ## Requirements
 
-- PHP >= 5.2.6
+- PHP >= 5.3.x
 - CakePHP >= 2.0
 
 ## Installation
@@ -66,6 +66,25 @@ Then, add the following code in bootstrap.php
 
 	<?php
 		$result = FileImporter::load('Prefecture', TESTS.'Fixture'.DS.'Data'.DS.'prefectures.csv');
+
+
+#### Use with [Migrations Plugin](https://github.com/CakeDC/migrations)
+
+	<?php
+	class AddPrefectures extends CakeMigration {
+	
+	...
+	
+		public function after($direction) {
+			if ($direction === 'up') {
+				return FileImporter::load('Prefecture', TESTS.'Fixture'.DS.'Data'.DS.'prefectures.csv');
+			}
+
+			return true;
+		}
+		
+	…
+	}
 
 ## License
 
