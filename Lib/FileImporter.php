@@ -23,7 +23,13 @@ class FileImporter
 			throw new Exception("Import Method not exists.({$method})", 1);
 		}
 
-		return FileImporter::{$method}($file);
+		if (strtolower($fileinfo['extension']) === 'csv') {
+			return FileImporter::_importFromCsv($file);
+		} elseif (strtolower($fileinfo['extension']) === 'tsv') {
+			return FileImporter::_importFromTsv($file);
+		} else {
+			throw new Exception("Import Method not exists.({$method})", 1);
+		}
 	}
 
 	/**
