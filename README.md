@@ -77,6 +77,7 @@ Then, add the following code in bootstrap.php
 	
 		public function after($direction) {
 			if ($direction === 'up') {
+				App::uses('Post', 'Model');
 				return FileImporter::load('Prefecture', TESTS.'Fixture'.DS.'Data'.DS.'prefectures.csv');
 			}
 
