@@ -1,5 +1,6 @@
 <?php
 App::uses('CakeTestFixture', 'TestSuite/Fixture');
+App::uses('FileImporter', 'FileFixture.Lib');
 
 class FileTestFixture extends CakeTestFixture {
 
@@ -30,59 +31,6 @@ class FileTestFixture extends CakeTestFixture {
 			throw new Exception("Fixture data file not exists.({$file})", 1);
 		}
 
-		$fileinfo = pathinfo($params['file']);
-
-		$method = "_importFrom".ucfirst(strtolower($fileinfo['extension']));
-		if (!method_exists($this, $method)) {
-			throw new Exception("Import Method not exists.({$method})", 1);
-		}
-
-		$this->{$method}($file);
-	}
-
-	/**
-	 * import fixture data from csv file
-	 *
-	 * @return void
-	 **/
-	protected function _importFromCsv($file)
-	{
-		$handle = fopen($file, 'r');
-		$line = rtrim(fgets($handle));
-		$fields = explode(',', $line);
-
-		$this->records = array();
-		while (($data = fgetcsv($handle, 8192, ',')) !== FALSE) {
-			$record = array();
-			foreach ($data as $k => $v) {
-				$record[$fields[$k]] = $v;
-			}
-			$this->records[] = $record;
-		}
-
-		fclose($handle);
-	}
-
-	/**
-	 * import fixture data from tsv file
-	 *
-	 * @return void
-	 **/
-	protected function _importFromTsv($file)
-	{
-		$handle = fopen($file, 'r');
-		$line = rtrim(fgets($handle));
-		$fields = explode("\t", $line);
-
-		$this->records = array();
-		while (($data = fgetcsv($handle, 8192, "\t")) !== FALSE) {
-			$record = array();
-			foreach ($data as $k => $v) {
-				$record[$fields[$k]] = $v;
-			}
-			$this->records[] = $record;
-		}
-
-		fclose($handle);
+		$this->records = FileImporter::import($file);
 	}
 }

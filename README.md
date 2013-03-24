@@ -4,8 +4,8 @@
 
 ## Feature
 
-- Load fixture data from csv(Comma-Separated Values) file
-- Load fixture data from tsv(TAB-Separated Values) file
+- Load fixture data from csv(Comma-Separated Values)/tsv(TAB-Separated Values) file
+- Load master data from csv(Comma-Separated Values)/tsv(TAB-Separated Values)  file
 
 ## Requirements
 
@@ -21,6 +21,8 @@ Then, add the following code in bootstrap.php
         CakePlugin::load('FileFixture');
 
 ## Usage
+
+### FileTestFixture
 
 	app/Test/Fixture/PostFixture.php
 	<?php
@@ -54,11 +56,16 @@ Then, add the following code in bootstrap.php
 		);
 	}
 
-	# app/Test/Fixture/Data/posts.csv
+	app/Test/Fixture/Data/posts.csv
 	title,body,created,modified
 	"The title","This is the post body.","2011-06-20 23:10:57","2011-06-20 23:10:57"
 	"A title once again","And the post body follows.","2011-06-20 23:10:57","2011-06-20 23:10:57"
 	"Title strikes back","This is really exciting! Not.","2011-06-20 23:10:57","2011-06-20 23:10:57"
+
+### FileImporter
+
+	<?php
+		$result = FileImporter::load('Prefecture', TESTS.'Fixture'.DS.'Data'.DS.'prefectures.csv');
 
 ## License
 
