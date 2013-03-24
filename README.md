@@ -1,5 +1,7 @@
 # FileFixture Plugin for CakePHP2.x
 
+[![Build Status](https://travis-ci.org/kaz29/filefixture.png?branch=2.0)](https://travis-ci.org/kaz29/filefixture)
+
 ## Feature
 
 - Load fixture data from csv(Comma-Separated Values) file
