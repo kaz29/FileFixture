@@ -13,5 +13,11 @@
     ],
     "require": {
         "composer/installers": "*"
+    },
+    "extra": {
+        "installer-paths": {
+            "Plugin/{$name}": ["kaz29/file_fixture"]
+        },
+        "installer-name": "FileFixture"
     }
 }
