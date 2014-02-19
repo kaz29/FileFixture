@@ -1,5 +1,5 @@
 {
-    "name": "FileFixture",
+    "name": "kaz29/file_fixture",
     "type": "cakephp-plugin",
     "description": "FileFixture Plugin for CakePHP",
     "keywords": ["cakephp","debug","fixture","migrations"],
