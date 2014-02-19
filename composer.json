@@ -1,0 +1,17 @@
+{
+    "name": "FileFixture",
+    "type": "cakephp-plugin",
+    "description": "FileFixture Plugin for CakePHP",
+    "keywords": ["cakephp","debug","fixture","migrations"],
+    "homepage": "https://github.com/kaz29/FileFixture",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kaz Watanabe",
+            "homepage": "http://kaz29.hatenablog.com/"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    }
+}
